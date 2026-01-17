@@ -2,20 +2,20 @@ import React, { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import PrimaryButton from "../../../../components/PrimaryButton";
 
-import video1 from "../../../../assets/videos/3D_Video.mp4";
-import video2 from "../../../../assets/videos/BV_BM Logo_BGM.mp4";
-import video3 from "../../../../assets/videos/social media OUT 1.mp4";
-import video4 from "../../../../assets/videos/social media OUT 2.mp4";
+//import video1 from "../../../../assets/videos/3D_Video.mp4";
+//import video2 from "../../../../assets/videos/BV_BM Logo_BGM.mp4";
+//import video3 from "../../../../assets/videos/social media OUT 1.mp4";
+//import video4 from "../../../../assets/videos/social media OUT 2.mp4";
 
 import bannerImage from "../../../../assets/images/logo.png"; // 👈 banner slide
 import { NavLink } from "react-router-dom";
 
 const slides = [
   { type: "banner" }, // 👈 FIRST SLIDE
-  { type: "video", src: video2, title: "BV BM Logo BGM" },
-  { type: "video", src: video3, title: "Social Media Video 1" },
-  { type: "video", src: video4, title: "Social Media Video 2" },
-  { type: "video", src: video1, title: "3D Video" },
+ // { type: "video", src: video2, title: "BV BM Logo BGM" },
+  //{ type: "video", src: video3, title: "Social Media Video 1" },
+ // { type: "video", src: video4, title: "Social Media Video 2" },
+ // { type: "video", src: video1, title: "3D Video" },
 ];
 
 const HeroVideoSlider = () => {

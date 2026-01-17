@@ -11,7 +11,7 @@ import bannerImage from "../../../../assets/images/logo.png"; // 👈 banner sli
 import { NavLink } from "react-router-dom";
 
 const slides = [
-  { type: "banner" }, // 👈 FIRST SLIDE
+  { type: "banner" },{ type: "banner" },{ type: "banner" } // 👈 FIRST SLIDE
  // { type: "video", src: video2, title: "BV BM Logo BGM" },
   //{ type: "video", src: video3, title: "Social Media Video 1" },
  // { type: "video", src: video4, title: "Social Media Video 2" },

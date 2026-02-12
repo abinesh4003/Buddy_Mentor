@@ -1,17 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { X } from "lucide-react";
 
 import MentoringCircleD3 from "./sections/MentoringCircle";
 import IntroMentoringCircle from "./sections/IntroMentoringCircle";
 import VideoPlayer from "../session/tabs/PepTalk/components/VideoPlayer";
 
-import { startCourse } from "../../store/progressSlice";
-
 const Dashboard = () => {
-  const dispatch = useDispatch();
-  const progress = useSelector((state) => state.progress);
-  const unlockedModules = progress.unlockedModules;
+  const [unlockedModules] = useState(16);
 
   const [isIntro, setIsIntro] = useState(false);
 
@@ -19,7 +14,7 @@ const Dashboard = () => {
     <div className="relative w-full min-h-screen flex flex-col items-center justify-center px-2">
       {/* MAIN CIRCLE */}
       {unlockedModules === 0 ? (
-        <IntroMentoringCircle onStart={() => dispatch(startCourse())} />
+        <IntroMentoringCircle />
       ) : (
         <MentoringCircleD3
           data={EPC_CORE_FOUNDATION}

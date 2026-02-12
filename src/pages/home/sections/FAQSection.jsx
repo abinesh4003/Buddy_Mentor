@@ -2,25 +2,51 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
-const faqs = [
-  {
-    question: "What industries and skills do you cover?",
-    answer:
-      "We cover multidisciplinary engineering domains including Civil, Mechanical, Electrical, Instrumentation, and emerging industry-focused skills. Our mentoring bridges academic knowledge with real-world applications.",
-  },
-  {
-    question: "How soon will I see results?",
-    answer:
-      "Most learners experience improved clarity and confidence within the first few mentoring sessions. Consistent engagement leads to measurable skill development over time.",
-  },
-  {
-    question: 'Do I need to be a "techie" to use your services?',
-    answer:
-      "Not at all. Our programs are designed for learners at all levels. Concepts are explained clearly, starting from fundamentals and progressing to advanced applications.",
-  },
-];
+const faqData = {
+  mentees: [
+    {
+      question: "What if I miss a session?",
+      answer: "You can reschedule the session based on mentor availability.",
+    },
+    {
+      question: "How long does the program take?",
+      answer:
+        "Programs vary depending on the track, typically ranging from a few weeks to several months.",
+    },
+    {
+      question: "Can I switch mentors?",
+      answer:
+        "Yes. If needed, we help you transition to another mentor better aligned with your goals.",
+    },
+  ],
+
+  industries: [
+    {
+      question: "Can organizations partner with you?",
+      answer:
+        "Yes, we collaborate with industries to provide workforce-ready talent through mentoring programs.",
+    },
+  ],
+
+  institutions: [
+    {
+      question: "Do you support colleges and universities?",
+      answer:
+        "We partner with academic institutions to enhance student employability through industry mentoring.",
+    },
+  ],
+
+  mentors: [
+    {
+      question: "How can I become a mentor?",
+      answer:
+        "You can apply through our mentor onboarding process. Our team will review your experience and expertise.",
+    },
+  ],
+};
 
 const FAQSection = () => {
+  const [activeTab, setActiveTab] = useState("mentees");
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleFAQ = (index) => {
@@ -28,30 +54,79 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="bg-white py-8 md:py-16">
-      <div className="max-w-4xl mx-auto px-4">
+    <section className="bg-white py-10 md:py-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        
         {/* Title */}
-        <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-primary mb-10">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-6"
+        >
           FAQs
         </motion.h2>
 
+        {/* Tabs */}
+        <div className="flex justify-center flex-wrap items-center gap-3 sm:gap-5 mb-10">
+          {Object.keys(faqData).map((tab, i) => (
+            <React.Fragment key={tab}>
+              <button
+                onClick={() => {
+                  setActiveTab(tab);
+                  setActiveIndex(null);
+                }}
+                className={`
+                  text-sm sm:text-base md:text-lg
+                  font-semibold
+                  pb-1
+                  border-b-2
+                  transition
+                  ${
+                    activeTab === tab
+                      ? "border-primary text-primary"
+                      : "border-transparent text-gray-500 hover:text-primary"
+                  }
+                `}
+              >
+                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              </button>
+
+              {i !== Object.keys(faqData).length - 1 && (
+                <span className="text-gray-400">|</span>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+
         {/* FAQ Items */}
-        <div className="space-y-5">
-          {faqs.map((faq, index) => (
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }}
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.25 }}
+          className="space-y-5"
+        >
+          {faqData[activeTab].map((faq, index) => (
+            <motion.div
               key={index}
-              className="border border-[#8aa4c4] rounded-md px-4 py-1 md:py-2"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05 }}
+              className="border border-[#8aa4c4] rounded-md px-4 py-2"
             >
               <button
                 onClick={() => toggleFAQ(index)}
                 className="w-full flex justify-between items-center text-left"
               >
-                <span className="text-primary font-semibold text-xs sm:text-base md:text-lg">
+                <span className="text-primary font-semibold text-sm sm:text-base md:text-lg">
                   {faq.question}
                 </span>
 
                 <ChevronDown
-                  className={`w-5 h-5 sm:w-6 sm:h-6 text-primary transition-transform duration-300 ${
+                  className={`w-5 h-5 text-primary transition-transform duration-300 ${
                     activeIndex === index ? "rotate-180" : ""
                   }`}
                 />
@@ -61,26 +136,31 @@ const FAQSection = () => {
               <div
                 className={`grid transition-all duration-300 ease-in-out ${
                   activeIndex === index
-                    ? "grid-rows-[1fr] opacity-100 mt-4"
+                    ? "grid-rows-[1fr] opacity-100 mt-3"
                     : "grid-rows-[0fr] opacity-0"
                 }`}
               >
                 <div className="overflow-hidden">
-                  <p className="text-[#16385e] text-xs sm:text-sm md:text-base text-start lg:text-lg leading-relaxed ">
+                  <p className="text-[#16385e] text-sm sm:text-base leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>
               </div>
             </motion.div>
           ))}
-        </div>
-
-      
+        </motion.div>
       </div>
-      <div className="max-w-6xl mx-auto px-4">
-          {/* Bottom Info Box */}
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} className="mt-14 border border-[#8aa4c4] rounded-lg p-6 sm:p-8 md:p-10 text-[#16385e] text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed text-left">
-         Our AI‑powered curriculum and mentor‑matching systems ensure every learner receives a personalized and highly effective mentoring experience. <span  className="text-primary font-semibold">Buddy Mentor</span>, owned by Vishesham Pvt. Ltd., retains full copyright over all course materials, including our immersive 2D/3D visualizations. Unauthorized use, reproduction, or copying of any content is strictly prohibited.
+
+      {/* Bottom Info Box */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-14 border border-[#8aa4c4] text-justify rounded-xl p-6 sm:p-8 md:p-10 text-[#16385e] text-sm sm:text-base md:text-lg leading-relaxed"
+        >
+         Our AI-powered curriculum, mentor-matching algorithms, and immersive 2D/3D visualizations are proprietary intellectual property of Vishesham Private Limited. BuddyMentor.ai retains exclusive worldwide copyright over all course materials, assessments, and digital assets. Unauthorized reproduction, distribution, screen capture, or derivative works of any content is strictly prohibited. Violators will face legal action under the Indian Copyright Act, 1957 including damages, injunctions, and account termination.
         </motion.div>
       </div>
     </section>

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const SIZE = 600;
 const RADIUS = SIZE / 2;
 
-const IntroMentoringCircle = ({ onStart }) => {
+const IntroMentoringCircle = () => {
   return (
     <motion.div
       className="flex justify-center items-center w-full"
@@ -52,7 +52,7 @@ const IntroMentoringCircle = ({ onStart }) => {
 
         {/* START Button */}
         <button
-          onClick={onStart}
+        
           className="
             absolute left-1/2 bottom-[18%] -translate-x-1/2
             px-10 py-2 rounded-full border border-slate-300

@@ -2,8 +2,6 @@ import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useDispatch } from "react-redux";
-import { unlockNextModule, resetProgress } from "../../../store/progressSlice";
 
 /* ================= CONSTANTS ================= */
 const SIZE = 600;
@@ -18,7 +16,6 @@ const CHAPTER_RADIUS = 250;
 const MentoringCircleD3 = ({ data, unlockedModules = 1, progress = 0 }) => {
   const ref = useRef();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   useEffect(() => {
     d3.select(ref.current).selectAll("*").remove();
@@ -143,7 +140,7 @@ const MentoringCircleD3 = ({ data, unlockedModules = 1, progress = 0 }) => {
         navigate(`/chapter/${subjectId}/${d.module.id}/${d.id}`);
       })
       .on("mouseenter", function () {
-        d3.select(this).style("fill", "#ffffff")
+        d3.select(this).style("fill", "#7e8184")
         .style("font-weight", "700");
         
       })
@@ -178,21 +175,7 @@ const MentoringCircleD3 = ({ data, unlockedModules = 1, progress = 0 }) => {
         <svg ref={ref} />
       </div>
 
-      <div className="flex gap-2">
-        <button
-          className="px-2 py-[2px] text-[12px] text-primary font-[520] border border-gray-300 rounded-lg hover:bg-gray-100"
-          onClick={() => dispatch(unlockNextModule())}
-        >
-          next week →
-        </button>
 
-        <button
-          className="px-2 py-[2px] text-[12px] text-primary font-[520] border border-gray-300 rounded-lg hover:bg-gray-100"
-          onClick={() => dispatch(resetProgress())}
-        >
-          Reset
-        </button>
-      </div>
     </motion.div>
   );
 };

@@ -11,11 +11,11 @@ import avinash from "../../../assets/images/aboutsections/Avinash.jpg";
 // replace with your actual image
 
 const enablers = [
-    { name: "Hemapriya", image: hema },
-    { name: "Damin Martin" , image: darwin },
-    { name: "Aarthi Loganathan", image: aarthi },
-    { name: "Tisha sri", image: tisha },
-    { name: "Avinash", image: avinash },
+    { name: "Hemapriya", image: hema ,role:"UI/UX Designer"},
+    { name: "Damin Martin", image: darwin,role:"AI Product Developer" },
+    { name: "Aarthi Loganathan", image: aarthi,role:"3D Generalist" },
+    { name: "Tisha sri", image: tisha,role:"Generative Design Specialist" },
+    { name: "Avinash", image: avinash ,role:"AI Product Developer"},
 ];
 
 const EmpoweringSection = () => {
@@ -33,25 +33,18 @@ const EmpoweringSection = () => {
                             Empowering Young Professionals
                         </motion.h2>
 
-                        <p className="text-sm text-gray-500 mb-4">
+                        <p className="text-sm md:text-base lg:text-xl text-primary mb-4">
                             The Vision of Dr. Anbu Vendan D
                         </p>
 
-                        <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4 text-start">
-                            Our founding mentor,<b> Dr. Anbu Vendan D</b>, has wide industry
-                            experience across the globe and has passionately mentored
-                            young talent throughout his three decades of professional life.
-                            He earned a PhD in engineering in renewable energy research and
-                            received high accolades for his work.
+                        <p className="text-gray-600 text-sm md:text-base mb-4 text-justify ">
+                            Our Founder and Chief Mentor,<b> Dr. Anbu Vendan D</b>, has wide core industry experience across the globe and has passionately mentored young talent throughout his three decades of professional life. He earned a PhD in engineering in renewable energy research interest and received high accolades for his work.
+
                         </p>
 
-                        <p className="text-gray-600 text-sm md:text-base leading-relaxed text-start">
-                            His “Buddy Mentor” initiative is a unique skilling platform
-                            created with the motto of enabling young professionals to
-                            become industry-ready by the time they complete their academic
-                            studies. The unique mentoring engine he designed also offers
-                            wide-reaching opportunities for skill enhancement for working
-                            industry professionals.
+                        <p className="text-gray-600 text-sm md:text-base text-justify">
+
+                            His “Buddy Mentor” initiative is a unique skilling platform created with the motto of enabling young professionals to become industry-ready by the time they complete their academic studies. The unique mentoring engine he designed also offers wide-reaching opportunities for skill enhancement for working industry professionals.
                         </p>
                     </div>
 
@@ -79,19 +72,19 @@ const EmpoweringSection = () => {
 
                         {/* TOP */}
                         <div className="">
-                            <Circle name={enablers[0].name}  image={enablers[0].image} />
+                            <Circle  name={enablers[0].name} image={enablers[0].image} role={enablers[0].role} />
                         </div>
 
                         {/* MIDDLE ROW */}
                         <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }} className="flex gap-48 mb-6 md:mb-10">
-                            <Circle name={enablers[1].name }    image={enablers[1].image} />
-                            <Circle name={enablers[2].name} image={enablers[2].image}    />
+                            <Circle  name={enablers[1].name} image={enablers[1].image} role={enablers[1].role} />
+                            <Circle  name={enablers[2].name} image={enablers[2].image} role={enablers[2].role} />
                         </motion.div>
 
                         {/* BOTTOM ROW */}
                         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.6 }} className="flex gap-16">
-                            <Circle name={enablers[3].name}  image={enablers[3].image} />
-                            <Circle name={enablers[4].name}  image={enablers[4].image} />
+                            <Circle  name={enablers[3].name} image={enablers[3].image} role={enablers[3].role} />
+                            <Circle  name={enablers[4].name} image={enablers[4].image} role={enablers[4].role} />
                         </motion.div>
                     </div>
 
@@ -105,7 +98,7 @@ const EmpoweringSection = () => {
     );
 };
 
-const Circle = ({ name,image }) => (
+const Circle = ({ name, image , role}) => (
     <div className="flex flex-col items-center">
         <div className="w-20 h-20 md:w-48 md:h-48  bg-gray-300 rounded-full mb-2">
             <img
@@ -114,7 +107,9 @@ const Circle = ({ name,image }) => (
                 className="w-full h-full object-cover rounded-full"
             />
         </div>
-        <p className="text-xs md:text-base text-primary font-medium">{name}</p>
+        <p className="text-xs md:text-base text-primary font-bold">{name}</p>
+        <p className="text-xs md:text-sm text-primary font-medium">{role}</p>
+        
     </div>
 );
 

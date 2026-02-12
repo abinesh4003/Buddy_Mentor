@@ -2,20 +2,18 @@ import React, { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import PrimaryButton from "../../../../components/PrimaryButton";
 
-//import video1 from "../../../../assets/videos/3D_Video.mp4";
-//import video2 from "../../../../assets/videos/BV_BM Logo_BGM.mp4";
-//import video3 from "../../../../assets/videos/social media OUT 1.mp4";
-//import video4 from "../../../../assets/videos/social media OUT 2.mp4";
+// import video2 from "../../../../assets/videos/BV_BM Logo_BGM.mp4";
+// import video3 from "../../../../assets/videos/social media OUT 1.mp4";
+// import video4 from "../../../../assets/videos/social media OUT 2.mp4";
 
 import bannerImage from "../../../../assets/images/logo.png"; // 👈 banner slide
 import { NavLink } from "react-router-dom";
 
 const slides = [
-  { type: "banner" },{ type: "banner" },{ type: "banner" } // 👈 FIRST SLIDE
- // { type: "video", src: video2, title: "BV BM Logo BGM" },
-  //{ type: "video", src: video3, title: "Social Media Video 1" },
- // { type: "video", src: video4, title: "Social Media Video 2" },
- // { type: "video", src: video1, title: "3D Video" },
+  { type: "banner" }, // 👈 FIRST SLIDE
+  // { type: "video", src: video2, title: "BV BM Logo BGM" },
+  // { type: "video", src: video3, title: "Social Media Video 1" },
+  // { type: "video", src: video4, title: "Social Media Video 2" },
 ];
 
 const HeroVideoSlider = () => {
@@ -44,7 +42,7 @@ const HeroVideoSlider = () => {
   // 👇 AUTO SLIDE ONLY FOR BANNER (10 seconds)
   useEffect(() => {
     if (slides[index].type === "banner") {
-      const timer = setTimeout(next, 5000);
+      const timer = setTimeout(next, 15000);
       return () => clearTimeout(timer);
     }
   }, [index])
@@ -71,7 +69,6 @@ const HeroVideoSlider = () => {
                 ref={videoRef}
                 src={slides[index].src}
                 autoPlay
-                muted
                 controls
                 playsInline
                 onEnded={next}
@@ -126,12 +123,12 @@ const HeroBannerSlide = () => {
         {/* LEFT SECTION – 60% */}
         <div className="w-[70%] text-white text-start pr-2 sm:pr-4 pl-4 sm:pl-0">
           <h1 className="text-base sm:text-lg md:text-2xl lg:text-3xl font-semibold leading-snug">
-            Decades of EPC Experience,
+            Decades of EPC Experience,<br/>
             Distilled Into a 4-Months Journey.
           </h1>
 
-          <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base opacity-90">
-            Just at ₹12,000/- exc GST
+          <p className="mt-2 sm:mt-3 md:mt-8 font-semibold text-xs sm:text-sm md:text-lg font-montserrat ">
+            Just at ₹12,000/- +GST
           </p>
 
          <NavLink   to="/register/mentee">

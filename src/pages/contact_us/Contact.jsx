@@ -114,16 +114,16 @@ const ContactSection = () => {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.5 }} className="bg-primary text-white rounded-xl p-5 w-full max-w-sm">
-              <p className="text-xs mb-1">
+              <p className="text-xs md:text-sm mb-1 sm:text-left">
                 <span className="font-semibold">Email (Support):</span>{" "}
-                <a href="contact@buddymentor.ai" className="hover:underline">
+                <a href="mailto:contact@buddymentor.ai" className="hover:underline">
                   contact@buddymentor.ai
                 </a>
               </p>
-              <p className="text-xs">
+              <p className="text-xs md:text-sm   sm:text-left">
                 <span className="font-semibold">Phone (Support):</span>{" "}
-                <a href="tel:+919998887770" className="hover:underline">
-                  +91 9487324187
+                <a href="tel:+917010656913" className="hover:underline">
+                  +91 7010656913
                 </a>
               </p>
             </motion.div>

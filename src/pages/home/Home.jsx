@@ -9,6 +9,7 @@ import SeamlessTransition from './sections/SeamlessTransition';
 import PartnersMarquee from '../../components/PartnersMarquee';
 import CuriositySlider from './sections/CuriositySlider';
 import FAQSection from './sections/FAQSection';
+import Recognization from './sections/Recognization';
 
 const Home = () => {
     return (
@@ -21,7 +22,8 @@ const Home = () => {
             <Analytics />
             <SeamlessTransition />
             {/* <PartnersMarquee /> */}
-            <CuriositySlider  title="Curiosity Seeker"/>
+            {/* <CuriositySlider  title="Curiosity Seeker"/> */}
+            <Recognization />
             <FAQSection />
         </main>
     );

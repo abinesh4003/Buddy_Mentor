@@ -1,10 +1,32 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import expo from "../../../assets/images/homesections/expo.png";
 import core1 from "../../../assets/images/homesections/industry.png";
 import core2 from "../../../assets/images/homesections/expert.png";
 import core3 from "../../../assets/images/homesections/flexible.png";
+
 import FeatureCard from "../../../components/FeatureCard";
+import { NavLink } from "react-router-dom";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const fadeInLeft = {
+  hidden: { opacity: 0, x: -30 },
+  visible: { opacity: 1, x: 0 }
+};
+
+const fadeInRight = {
+  hidden: { opacity: 0, x: 30 },
+  visible: { opacity: 1, x: 0 }
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: { opacity: 1, scale: 1 }
+};
 
 const CoreIndustrySection = () => {
   const features = [
@@ -18,10 +40,11 @@ const CoreIndustrySection = () => {
       
       {/* Tagline */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={fadeInUp}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="flex items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6"
       >
         <span className="h-px w-8 sm:w-32 bg-primary" />
@@ -31,14 +54,94 @@ const CoreIndustrySection = () => {
         <span className="h-px w-8 sm:w-32 bg-primary" />
       </motion.div>
 
+   
+    <motion.h3
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+      variants={fadeInUp}
+      transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+      className="text-lg sm:text-xl md:text-4xl font-[700] font-roboto tracking-tight text-primary text-center"
+    >
+      We are launching our product at AI India Expo 2026
+    </motion.h3>
+
+{/* Expo Announcement */}
+<motion.div
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, margin: "-50px" }}
+  variants={scaleIn}
+  transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+  className="max-w-4xl mx-auto text-left mb-8 sm:mb-12 mt-4 sm:mt-6 md:mt-8"
+>
+  {/* Heading */}
+ 
+
+  {/* Responsive Layout */}
+  <div className="flex flex-col items-center md:flex-row md:items-center md:justify-between gap-5">
+    
+    {/* Left Content */}
+    <div className="text-primary flex flex-col items-center text-center md:items-start md:text-left md:min-h-[90px]">
+
+      {/* Spacer (Desktop only) */}
+      <div className="hidden md:block "></div>
+
+      {/* Center Item */}
+      <p className="text-sm sm:text-base md:text-lg font-semibold flex items-center mb-4">
+        Visit us at
+      </p>
+
+      {/* Bottom Items */}
+      <div className="flex-1 h-full flex flex-col justify-end ">
+        <p className="text-sm sm:text-base md:text-lg  font-semibold">
+          Hall no : 6
+        </p>
+        <p className="text-sm sm:text-base md:text-lg  font-semibold">
+          POD no : 6P340
+        </p>
+      </div>
+
+    </div>
+
+    {/* Logo */}
+    <div className="w-full md:flex-1 flex justify-center ">
+      <img
+        src={expo}
+        alt="AI Impact Summit"
+        className="
+          h-16
+          sm:h-20
+          md:h-24
+          lg:h-28
+          w-auto
+          object-contain
+        "
+      />
+    </div>
+
+  </div>
+
+  {/* Link */}
+  <p className="underline cursor-pointer hover:text-blue-600 text-sm sm:text-base md:text-lg font-semibold text-primary  tracking-wider text-center md:text-left mt-4 md:mt-0">
+    <NavLink target="_blank" to="https://www.impactexpo.indiaai.gov.in/">
+      India AI Impact Expo 2026 | AI Innovation & Industry Solutions
+    </NavLink>
+  </p>
+</motion.div>
+
+
+
+
 
 <div className="max-w-3xl mx-auto text-left">
       {/* Title */}
       <motion.h2
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.7, delay: 0.2 }}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, margin: "-50px" }}
+  variants={fadeInUp}
+  transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
   className="
     text-xl
     sm:text-2xl
@@ -53,10 +156,11 @@ const CoreIndustrySection = () => {
   Core Industry Skilling Portal
 </motion.h2>
     <motion.p
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.6, delay: 0.3 }}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, margin: "-50px" }}
+  variants={fadeInUp}
+  transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
   className="
     text-sm
     sm:text-base
@@ -81,10 +185,11 @@ const CoreIndustrySection = () => {
 
         {/* Sub heading */}
         <motion.h3
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={fadeInLeft}
+          transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
           className="
             text-base
             sm:text-lg
@@ -100,10 +205,11 @@ const CoreIndustrySection = () => {
         </motion.h3>
 
         <motion.p
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={fadeInRight}
+          transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
           className="
             text-sm
             sm:text-base
@@ -119,10 +225,11 @@ const CoreIndustrySection = () => {
 
         {/* Bullet list */}
         <motion.ul
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.6 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={fadeInUp}
+          transition={{ duration: 0.7, delay: 0.7, ease: "easeOut" }}
           className="
             text-sm
             sm:text-base
@@ -166,10 +273,19 @@ const CoreIndustrySection = () => {
         {features.map((item, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={scaleIn}
+            transition={{ 
+              duration: 0.6, 
+              delay: 0.8 + index * 0.15, 
+              ease: "easeOut" 
+            }}
+            whileHover={{ 
+              scale: 1.05, 
+              transition: { duration: 0.3 } 
+            }}
             className="w-full md:w-auto"
           >
             <FeatureCard {...item} />

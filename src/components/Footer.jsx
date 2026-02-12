@@ -1,5 +1,4 @@
 import React from "react";
-
 import Mascot from "../assets/images/logo.png";
 import youtube from "../assets/images/youtube.png";
 import FB from "../assets/images/fb.png";
@@ -9,86 +8,158 @@ import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-gray-200">
-      {/* Top Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 text-sm sm:text-base text-primary">
-          {/* Column 1 */}
-          <div className="text-start">
-            <h4 className="font-semibold mb-3 sm:mb-4 text-base sm:text-lg">Buddy Mentor</h4>
-            <ul className="space-y-1 sm:space-y-2">
+    <footer className="border-t border-gray-200">
+
+      {/* TOP FOOTER */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+
+        {/*  FIXED GRID */}
+        <div
+          className="
+          grid
+          grid-cols-2
+          sm:grid-cols-3
+          lg:grid-cols-5
+          gap-y-6
+          gap-x-6
+          md:gap-8
+          text-primary
+        "
+        >
+
+          {/* Buddy Mentor */}
+          <div>
+            <h4 className="font-semibold mb-2 md:mb-4 text-sm sm:text-base lg:text-lg text-left">
+              Buddy Mentor
+            </h4>
+            <ul className="space-y-1 text-xs sm:text-sm text-left">
               <li>About</li>
               <li>Careers</li>
               <li>Investors</li>
-              <li>Press</li>
+              <li>Become a Mentor</li>
             </ul>
           </div>
 
-          {/* Column 2 */}
-          <div className="text-start">
-            <h4 className="font-semibold mb-3 sm:mb-4 text-base sm:text-lg">Growth</h4>
-            <ul className="space-y-1 sm:space-y-2">
-              <li>What is a Memoir?</li>
-              <li>Articles</li>
-              <li>Blog</li>
-              <li>Share Your Story</li>
+          {/* For Industry */}
+          <div>
+            <h4 className="font-semibold mb-2 md:mb-4 text-sm sm:text-base lg:text-lg text-left">
+              For Industry
+            </h4>
+            <ul className="space-y-1 text-xs sm:text-sm text-left">
+              <li>Engineering</li>
+              <li>Industry Projects</li>
+              <li>Customized Mentoring</li>
             </ul>
           </div>
 
-          {/* Column 3 */}
-          <div className="text-start">
-            <h4 className="font-semibold mb-3 sm:mb-4 text-base sm:text-lg">Support & Growth</h4>
-            <ul className="space-y-1 sm:space-y-2">
-              <li>Help</li>
-              <li>Contact</li>
-              <li>Become a Partner</li>
+          {/* For Institutions */}
+          <div>
+            <h4 className="font-semibold mb-2 md:mb-4 text-sm sm:text-base lg:text-lg text-left">
+              For Institutions
+            </h4>
+            <ul className="space-y-1 text-xs sm:text-sm text-left">
+              <li>Partner With Us</li>
+              <li>Campus Programs</li>
+              <li>Faculty Enablement</li>
+              <li>Success Stories</li>
             </ul>
           </div>
 
-          {/* Column 4 */}
-          <div className="text-start">
-            <h4 className="font-semibold mb-3 sm:mb-4 text-base sm:text-lg">Legal & Privacy</h4>
-            <ul className="space-y-1 sm:space-y-2">
-              <li>Terms and Conditions</li>
+          {/* Support */}
+          <div>
+            <h4 className="font-semibold mb-2 md:mb-4 text-sm sm:text-base lg:text-lg text-left">
+              Support
+            </h4>
+            <ul className="space-y-1 text-xs sm:text-sm text-left">
+              <li>Help Center</li>
+              <li>Contact Us</li>
+              <li>FAQs</li>
+              <li>Report an Issue</li>
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h4 className="font-semibold mb-2 md:mb-4 text-sm sm:text-base lg:text-lg text-left">
+              Legal
+            </h4>
+            <ul className="space-y-1 text-xs sm:text-sm text-left">
+              <li>Terms & Conditions</li>
               <li>Privacy Policy</li>
-              <li>Trademark</li>
+              <li>Cookie Policy</li>
               <li>Accessibility Statement</li>
             </ul>
           </div>
+
         </div>
       </div>
 
-      {/* Bottom Bar */}
+
+      {/* BOTTOM BAR */}
       <div className="bg-primary relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
+        <div
+          className="
+          max-w-7xl mx-auto
+          px-4 sm:px-6 lg:px-8
+          py-3 sm:py-4
+          flex
+          flex-col md:flex-row
+          items-center
+          justify-between
+          gap-3
+        "
+        >
 
           {/* Copyright */}
-          <p className="text-white text-xs sm:text-sm text-center sm:text-left">
-            Copyright &copy; {new Date().getFullYear()} <span className="font-semibold">buddymentor.ai</span> – All Rights Reserved.
+          <p className="text-white text-xs sm:text-sm text-center md:text-left">
+            Copyright © {new Date().getFullYear()} buddymentor.ai - All Rights Reserved.
           </p>
 
           {/* Social Icons */}
           <div className="flex items-center gap-3 sm:gap-4">
-            <NavLink to="https://www.youtube.com/channel/UC7vlV5astqFyukFlTQzui1A" target="_blank" rel="noopener noreferrer">
-              <img src={youtube} alt="youtube" className="  sm:w-8 h-8" />
-              </NavLink>
-                    <NavLink to="https://www.facebook.com/profile.php?id=61585003751932"  target="_blank" rel="noopener noreferrer">
-              <img src={FB} alt="facebook" className=" sm:w-8 h-8" />
+            <NavLink to="https://www.youtube.com/channel/UC7vlV5astqFyukFlTQzui1A" target="_blank">
+              <img src={youtube} alt="youtube" className="w-5 h-5 sm:w-6 sm:h-6"/>
             </NavLink>
-            <NavLink to="https://www.instagram.com/buddymentor.ai/#"  target="_blank" rel="noopener noreferrer">
-              <img src={IG} alt="instagram" className=" sm:w-8 h-8" />
+
+            <NavLink to="https://www.facebook.com/profile.php?id=61585003751932" target="_blank">
+              <img src={FB} alt="facebook" className="w-5 h-5 sm:w-6 sm:h-6"/>
             </NavLink>
-            <NavLink to="https://www.linkedin.com/in/buddy-mentor-5779a6394"  target="_blank" rel="noopener noreferrer">
-              <img src={LinkedIn} alt="linkedin" className=" sm:w-8 h-8" />
+
+            <NavLink to="https://www.instagram.com/buddymentor.ai/#" target="_blank">
+              <img src={IG} alt="instagram" className="w-5 h-5 sm:w-6 sm:h-6"/>
+            </NavLink>
+
+            <NavLink to="https://www.linkedin.com/in/buddy-mentor-5779a6394" target="_blank">
+              <img src={LinkedIn} alt="linkedin" className="w-5 h-5 sm:w-6 sm:h-6"/>
             </NavLink>
           </div>
         </div>
 
-        {/* Mascot Circle */}
-        <div className="absolute right-4 sm:right-6 -top-8 w-14 sm:w-16 h-14 sm:h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
-          <img src={Mascot} alt="Mascot" className="w-9 sm:w-10 h-9 sm:h-10 object-contain" />
+        {/* ✅ MOBILE SAFE MASCOT */}
+        <div
+          className="
+          absolute
+          right-4 sm:right-6
+          -top-8 sm:-top-10
+          w-14 h-14
+          sm:w-16 sm:h-16
+          lg:w-20 lg:h-20
+          bg-white
+          rounded-full
+          flex
+          items-center
+          justify-center
+          shadow-xl
+        "
+        >
+          <img
+            src={Mascot}
+            alt="Mascot"
+            className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 object-contain"
+          />
         </div>
       </div>
+
     </footer>
   );
 };

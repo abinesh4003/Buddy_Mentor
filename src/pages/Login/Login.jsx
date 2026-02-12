@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import loginIllustration from "../../assets/images/login.png";
 
 import InputField from "../../components/Inputfield";
@@ -10,7 +11,7 @@ const Login = () => {
     password: "",
     otp: "",
   });
-
+const navigate = useNavigate();
    
 
   const handleChange = (e) => {
@@ -19,7 +20,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
+    // navigate("/dashboard");
     console.log(formData);
   };
   return (
